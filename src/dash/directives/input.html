@@ -1,0 +1,5 @@
+<p class="control">
+    <input class="input" ng-class="{'as-error': err || msg}" type="text" ng-model="model" ng-blur="blur()" ng-focus="focus()" ng-trim="false" placeholder="{{placeholder}}" ng-change="change()">
+</p>
+<p class="input-error" ng-if="err">{{err}}</p>
+<p class="input-error" ng-if="msg">{{msg}}</p>

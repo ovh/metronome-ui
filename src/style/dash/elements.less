@@ -1,0 +1,92 @@
+@import (multiple) "colors";
+
+.title {
+    border-bottom: 1px solid rgba(204, 204, 204, 0.54);
+    padding: 0 0 @spacing;
+    margin: @spacing @spacing 0;
+    font-family: 'Raleway', sans-serif;
+
+    .button {
+        background: none;
+    }
+}
+
+.title:first-of-type {
+    margin-top: 0;
+}
+
+.label,
+.subtitle {
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    color: @white;
+    margin: 0 0 @spacing;
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+}
+
+input {
+    font-family: 'Open Sans', sans-serif;
+    background: none;
+    margin-top: -@spacing;
+    font-size: 0.8rem;
+    line-height: 0.8em;
+    height: auto;
+    padding: 4px 0;
+    color: @white;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.as-error {
+    color: @red;
+    border-bottom-color: @red;
+}
+
+p.input-error {
+    margin-top: -8px;
+    color: @red;
+}
+
+.button {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 0.8em;
+    height: auto;
+    padding: 8px;
+    background: none;
+    color: @white;
+    border-color: @white;
+}
+
+.button:hover {
+  color: #333;
+  background: @white;
+  border-color: @white;
+}
+
+::placeholder {
+    color: #dedede;
+}
+
+hr {
+    background-color: @border-color;
+    margin: 0 @spacing;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    color: @white;
+    margin: @spacing 0;
+    padding: 0;
+    line-height: 1em;
+    font-size: 0.8rem;
+}
+
+.status {
+    font-size: 2.2rem;
+    text-transform: capitalize;
+}

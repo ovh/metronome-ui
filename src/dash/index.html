@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Metronome</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="noindex">
+
+	<!-- <link href="https://fonts.googleapis.com/css?family=Bitter|Source+Sans+Pro" rel="stylesheet"> -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Raleway:500" rel="stylesheet">
+
+	<!-- build:css inline alias.less -->
+	<link rel="stylesheet" href="/css/bulma.css">
+	<link rel="stylesheet" href="/css/toaster.min.css">
+	<link rel="stylesheet" href="/css/dash.css">
+	<!-- /build -->
+</head>
+
+<body class="mt-dash" ng-app="metronome" ng-strict-di>
+	<section class="section mt-nav" ng-controller="NavCtrl as nav">
+		<nav class="nav">
+			<div class="nav-left">
+				<a class="nav-item is-brand" href="#!/board">
+					<h1 class="title is-1">Metronome</h1>
+				</a>
+			</div>
+
+			<div class="nav-right nav-menu">
+				<a class="nav-item" href="/signout">
+		      {{user.name}}&nbsp;
+					<span class="icon">
+					<svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+					    <path d="M0 0h24v24H0z" fill="none"/>
+					    <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+					</svg>
+					</span>
+		    </a>
+			</div>
+		</nav>
+	</section>
+
+	<section class="section">
+		<div ng-view></div>
+	</section>
+
+	<toaster-container toaster-options=""></toaster-container>
+
+	<!-- build:js inline bundle.js -->
+	<script src="/js/js.cookie.js"></script>
+	<script src="/js/sha256.min.js"></script>
+	<script src="/js/moment.min.js"></script>
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/angular.min.js"></script>
+	<script src="/js/angular-route.min.js"></script>
+	<script src="/js/angular-moment.min.js"></script>
+	<script src="/js/toaster.min.js"></script>
+	<!-- /build -->
+
+	<!-- build:js inline alias.js -->
+	<script src="/dash/services/http.js"></script>
+	<script src="/dash/services/task.js"></script>
+	<script src="/dash/services/transpiler.js"></script>
+	<script src="/dash/services/user.js"></script>
+	<script src="/dash/directives/level.js"></script>
+	<script src="/dash/directives/task.js"></script>
+	<script src="/dash/directives/input.js"></script>
+	<script src="/dash/fragments/board/board.js"></script>
+	<script src="/dash/fragments/task/task.js"></script>
+	<script src="/dash/app.js"></script>
+	<!-- /build -->
+</body>
+
+</html>

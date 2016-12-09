@@ -1,0 +1,115 @@
+.f-task {
+    @import (multiple) "colors";
+
+    .task {
+        .elements-color(@yellow);
+        border-right: 1px solid @border-color;
+
+        .entry {
+            margin: @spacing 0;
+            padding: 0 @spacing;
+        }
+
+        h3.subtitle.accent {
+            padding: 0 @spacing 0 @spacing;
+            margin: 0;
+        }
+
+        .btns,
+        .schedule {
+            margin: 0;
+
+            .column {
+                border-right: 1px solid #797979;
+                margin: 12px 0;
+                padding: 0 12px;
+            }
+
+            .column:last-child {
+                border: none;
+            }
+
+            .columns {
+                margin: 0;
+
+                .column {
+                    margin: 0;
+                    padding: 0;
+                    border: none;
+                }
+            }
+        }
+
+        .schedule {
+            .c-period,
+            .c-start {
+                flex-grow: 2;
+            }
+            @media (max-width: 1600px) {
+                .c-epsilon,
+                .c-repeat {
+                    width: 80px;
+                    flex: none;
+                }
+            }
+            @media (max-width: 1440px) {
+                .c-period,
+                .c-start {
+                    width: 66.6%;
+                    flex: none;
+                }
+
+                .c-epsilon,
+                .c-repeat {
+                    width: 33.3%;
+                    flex: none;
+                    border: none;
+                }
+
+                .c-epsilon,
+                .c-period {
+                    margin-top: 0;
+                }
+
+                .c-start {
+                    order: -1;
+                }
+            }
+
+            p {
+                margin-top: 0;
+                margin-bottom: 2px;
+            }
+
+            p:not(.control) {
+                margin-top: -6px;
+                padding: 0 4px;
+            }
+
+            p.input-error {
+                margin-top: 0;
+                padding: 0;
+            }
+
+            .button {
+                margin-top: -10px;
+                font-size: 0.8rem;
+                padding: 2px 4px;
+            }
+        }
+
+        .btns {
+          .button {
+            width: 100%;
+          }
+        }
+    }
+
+    .execs {
+        .elements-color(@blue);
+
+        p.status {
+            //padding-left: @spacing;
+        }
+    }
+}

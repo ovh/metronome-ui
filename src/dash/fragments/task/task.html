@@ -1,0 +1,111 @@
+<div class="columns f-task">
+  <div class="column is-one-third task" ng-if="!edit">
+    <div class="level title">
+      <div class="level-left">
+        <h2 class="level-item">{{task.name}}</h2>
+      </div>
+
+      <div class="level-right">
+        <button class="level-item button" ng-click="switchEdit()">Edit</button>
+      </div>
+    </div>
+
+
+    <div class="entry">
+      <p>URN: {{task.urn}}</p>
+      <p>START: {{task.schedule.date + ' ' + task.schedule.time | amParse:'YYYY.MM.DD HH:mm:ss' | amUtc | amDateFormat:'MMM D YYYY [at] HH:mm:ss'}}</p>
+      <p>PERIOD ({{task.schedule.periodIsDate ? 'DATE' : 'TIME'}}): {{task.schedule.period}}</p>
+      <p>REPEAT: {{task.schedule.repeat !== '' ? 'task.schedule.repeat' : 'Forever'}}</p>
+      <p>EPSILON: {{task.schedule.epsilon}}</p>
+    </div>
+
+    <hr />
+  </div>
+  <div class="column is-one-third task" ng-if="edit">
+    <div class="level title">
+      <div class="level-left">
+        <h2 class="level-item">Task Definition</h2>
+        <button class="level-item button danger" ng-click="switchDelete()" ng-if="!delete && task.id">Delete</button>
+      </div>
+      <div class="level-right" ng-if="delete">
+        <button class="level-item button" ng-click="switchDelete()">Cancel</button>
+        <button class="level-item button danger" ng-click="doDelete()">Confirm</button>
+      </div>
+    </div>
+
+    <div class="entry">
+      <h3 class="subtitle">Name</h3>
+      <mt-input value="task.name" required err="errs.name"></mt-input>
+      <h3 class="subtitle">URN</h3>
+      <mt-input value="task.urn" required err="errs.urn"></mt-input>
+    </div>
+    <!--hr /-->
+
+    <h3 class="subtitle accent">Task Schedule</h3>
+    <div class="columns is-multiline inner schedule">
+      <div class="column c-repeat">
+        <h3 class="subtitle">Repeat</h3>
+        <mt-input value="task.schedule.repeat" type="number" min="0" placeholder="&infin;" err="errs.repeat"></mt-input>
+      </div>
+
+      <div class="column c-start">
+        <h3 class="subtitle">Start (UTC)</h3>
+        <div class="columns inner">
+          <div class="column">
+            <mt-input value="task.schedule.date" type="date" format="YYYY-MM-DD" placeholder="YYYY-MM-DD" err="errs.date" required></mt-input>
+          </div>
+          <div class="column is-narrow">
+            <p>T</p>
+          </div>
+          <div class="column">
+            <mt-input value="task.schedule.time" type="date" format="HH:mm:ss" placeholder="hh:mm:ss" err="errs.time" required></mt-input>
+          </div>
+        </div>
+      </div>
+
+      <div class="column c-period">
+        <h3 class="subtitle">Period ({{task.schedule.periodIsDate ? 'date' : 'time'}})</h3>
+        <div class="columns inner">
+          <div class="column">
+            <mt-input value="task.schedule.period" type="period" format="{{task.schedule.periodIsDate ? 'Y:0-10,M:0-12' : 'D:0-365,h:0-24,m:0-60,s:0-60'}}" placeholder="{{task.schedule.periodIsDate ? '[n]Y [n]M' : '[n]D [n]h [n]m [n]s'}}" err="errs.period" required></mt-input>
+          </div>
+
+          <div class="column is-narrow">
+            <p>&nbsp;</p>
+          </div>
+          <div class="column is-narrow">
+            <p class="control">
+              <button class="button" ng-click="switchMode()">switch to<br />{{task.schedule.periodIsDate ? 'time' : 'date'}} mode</button>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column c-epsilon">
+        <h3 class="subtitle">Epsilon</h3>
+        <mt-input value="task.schedule.epsilon" type="period" format="m:0-60,s:0-60" placeholder="[n]m [n]s" err="errs.epsilon" required></mt-input>
+      </div>
+    </div>
+    <hr />
+    <div class="columns inner btns">
+      <div class="column">
+        <button class="button" ng-click="abort()">Cancel</button>
+      </div>
+      <div class="column">
+        <button class="button accent" ng-click="save()">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="column execs">
+    <h2 class="title">Executions</h2>
+    <p class="status" ng-if="!nextExec.length">
+      no planned execution
+    </p>
+
+    <div ng-repeat="t in nextExec">
+      <mt-task status="t.status" time="t.at"></mt-task>
+      <hr ng-if="!$last">
+    </div>
+  </div>
+</div>

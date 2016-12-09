@@ -1,0 +1,74 @@
+.f-board {
+    @import (multiple) "colors";
+
+    .col(@accent-color) {
+        .elements-color(@accent-color);
+
+        .mt-progress {
+            .cursor {
+                background: @accent-color
+            }
+        }
+    }
+
+    .mt-stats {
+        .col(@red);
+        border-right: 1px solid @border-color;
+        .mt-stat {
+            padding: @spacing;
+
+            p:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .mt-tasks {
+        .col(@yellow);
+
+        .mt-task {
+            cursor: pointer;
+        }
+
+        .mt-task:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    }
+    // Widgets
+    .mt-counter {
+        font-size: 4rem;
+    }
+
+    .mt-info {
+        font-size: 2.2rem;
+        text-transform: capitalize;
+    }
+
+    .mt-level {
+        margin: @spacing 0;
+
+        .level {
+            margin: @spacing*2/3 0;
+
+            p {
+                margin: 0;
+                font-size: 0.8rem;
+            }
+
+            .level-right p {
+                font-weight: 700;
+            }
+        }
+
+        .mt-progress {
+            position: relative;
+            border-bottom: 1px dashed @white;
+
+            .cursor {
+                height: 3px;
+                position: absolute;
+                top: -1px;
+            }
+        }
+    }
+}

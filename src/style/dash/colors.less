@@ -1,0 +1,60 @@
+@white: white; //#d6d6d6;
+@red: #f95562;
+@yellow: #e9f108;
+@blue: #23ddf6;
+@border-color: #797979;
+@spacing: 12px;
+
+.elements-color(@accent-color) {
+    .title {
+        color: @accent-color;
+        border-bottom-color: @accent-color;
+
+        .button {
+            border-color: @accent-color;
+            color: @accent-color;
+        }
+
+        .button:hover {
+            border-color: @accent-color;
+            background: @accent-color;
+            color: #333;
+        }
+    }
+
+    .accent {
+        color: @accent-color;
+    }
+
+    .button.accent {
+        border-color: @accent-color;
+        color: @accent-color;
+    }
+
+    .button.accent:hover {
+        border-color: @accent-color;
+        background: @accent-color;
+        color: #333;
+    }
+
+    .button.danger {
+      color: @red;
+      border-color: @red;
+    }
+
+    .button.danger:hover {
+        border-color: @red;
+        background: @red;
+        color: #333;
+    }
+
+    .mt-task {
+        .icon {
+            fill: @accent-color;
+        }
+    }
+
+    input:focus {
+        border-color: @accent-color;
+    }
+}

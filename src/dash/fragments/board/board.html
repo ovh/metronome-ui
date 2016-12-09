@@ -1,0 +1,32 @@
+<div class="columns f-board">
+  <div class="column is-one-third mt-stats">
+    <h2 class="title">Tasks Report</h2>
+
+    <div class="mt-stat">
+      <h3 class="subtitle">Tasks</h3>
+      <p class="mt-counter accent">82</p>
+    </div>
+    <hr>
+    <div class="mt-stat">
+      <h3 class="subtitle">Status</h3>
+      <mt-level label="Active" value="80" max="80"></mt-level>
+      <mt-level label="Success" value="75" max="80"></mt-level>
+      <mt-level label="Failed" value="5" max="80"></mt-level>
+    </div>
+  </div>
+  <div class="column mt-tasks">
+    <div class="level title">
+      <div class="level-left">
+        <h2 class="level-item">Tasks List</h2>
+      </div>
+
+      <div class="level-right">
+        <a class="level-item button" href="#!task">New</a>
+      </div>
+    </div>
+    <div ng-repeat="t in tasks">
+      <mt-task name="t.name" status="t.lastExecution.status || 'Never executed'" time="t.lastExecution.at" icon="arrow" ng-click="open(t)"></mt-task>
+      <hr ng-if="!$last">
+    </div>
+  </div>
+</div>

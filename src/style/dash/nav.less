@@ -1,0 +1,38 @@
+.mt-nav {
+  @import (multiple) "colors";
+    background: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: -10px;
+
+    nav {
+        border-bottom: 1px solid @border-color;
+    }
+
+    h1 {
+        color: white;
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-item a:not(.button),
+    a.nav-item {
+        color: white;
+
+        svg {
+            fill: white;
+        }
+    }
+
+    .nav-item a:not(.button).is-active,
+    .nav-item a:not(.button):hover,
+    a.nav-item.is-active,
+    a.nav-item:hover {
+        color: #EEE;
+
+        svg {
+            fill: #EEE;
+        }
+    }
+}
