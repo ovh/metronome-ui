@@ -8,12 +8,13 @@
       restrict: 'E',
       scope: {
         label: '@',
-        value: '=',
-        max: '=',
+        value: '@',
+        max: '@',
       },
       link: {
         pre: function (scope) {
-          scope.ratio = scope.value / scope.max * 100;
+          console.log((scope.value), (scope.max));
+          scope.ratio = parseInt(scope.value) / parseInt(scope.max) * 100;
         }
       },
       templateUrl: 'directives/level.html'
