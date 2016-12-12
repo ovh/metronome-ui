@@ -100,7 +100,7 @@
   <div class="column execs">
     <h2 class="title">Executions</h2>
     <p class="status" ng-if="!nextExec.length">
-      no planned execution
+      <mt-task status="task.runCode" time="task.runAt"></mt-task>
     </p>
 
     <div ng-repeat="t in nextExec">

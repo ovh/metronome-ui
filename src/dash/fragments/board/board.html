@@ -4,14 +4,14 @@
 
     <div class="mt-stat">
       <h3 class="subtitle">Tasks</h3>
-      <p class="mt-counter accent">82</p>
+      <p class="mt-counter accent">{{tasks|mtTasksCount:'all'}}</p>
     </div>
     <hr>
     <div class="mt-stat">
       <h3 class="subtitle">Status</h3>
-      <mt-level label="Active" value="80" max="80"></mt-level>
-      <mt-level label="Success" value="75" max="80"></mt-level>
-      <mt-level label="Failed" value="5" max="80"></mt-level>
+      <mt-level label="Success" value="{{tasks|mtTasksCount:'success'}}" max="{{tasks|mtTasksCount:'all'}}"></mt-level>
+      <mt-level label="Failed" value="{{tasks|mtTasksCount:'failed'}}" max="{{tasks|mtTasksCount:'all'}}"></mt-level>
+      <mt-level label="Unknown" value="{{tasks|mtTasksCount:'unknown'}}" max="{{tasks|mtTasksCount:'all'}}"></mt-level>
     </div>
   </div>
   <div class="column mt-tasks">
@@ -25,7 +25,7 @@
       </div>
     </div>
     <div ng-repeat="t in tasks">
-      <mt-task name="t.name" status="t.lastExecution.status || 'Never executed'" time="t.lastExecution.at" icon="arrow" ng-click="open(t)"></mt-task>
+      <mt-task name="t.name" status="t.runCode" time="t.runAt" icon="arrow" ng-click="open(t)"></mt-task>
       <hr ng-if="!$last">
     </div>
   </div>

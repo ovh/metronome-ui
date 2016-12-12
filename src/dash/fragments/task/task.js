@@ -39,6 +39,8 @@
             id: task.id,
             name: task.name,
             urn: task.URN,
+            runCode: task.runCode,
+            runAt: task.runAt,
             schedule: {
               repeat: segs[0].substring(1),
               date: d[0],
@@ -63,7 +65,8 @@
       $scope.nextExec = [];
 
       function computeNextExec() {
-        if (!$scope.task) {
+        $scope.nextExec = [];
+        if (!$scope.task || !$scope.edit) {
           return;
         }
 
@@ -76,7 +79,6 @@
 
         var sch = $scope.task.schedule,
           n, i;
-        $scope.nextExec = [];
 
         // get repeat
         var r = parseInt(sch.repeat);
@@ -120,11 +122,11 @@
           // Plan next executions
           for (i = n; i < n + 3; i++) {
             $scope.nextExec.push({
-              status: 'planned',
+              status: -1,
               at: start.clone().add(moment.duration({
                 months: m * i,
                 years: y * i
-              })).format()
+              })).unix()
             });
 
             if (i >= r) {
@@ -150,8 +152,8 @@
 
           for (i = n; i < n + 3; i++) {
             $scope.nextExec.push({
-              status: 'planned',
-              at: moment.unix(start.unix() + dt * i).format()
+              status: -1,
+              at: moment.unix(start.unix() + dt * i).unix()
             });
 
             if (i >= r) {
@@ -173,6 +175,7 @@
         'task.schedule.time',
         'task.schedule.period',
         'task.schedule.epsilon',
+        'task.schedule.edit',
       ], function () {
         return computeNextExec();
       });
@@ -259,7 +262,7 @@
             if (!$routeParams.id) {
               $location.path('/task/' + t.id);
             }
-            
+
             $scope.edit = !$scope.edit;
           });
         });
