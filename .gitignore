@@ -9,6 +9,8 @@ npm-debug.log*
 # Dependency directories
 node_modules
 
+.sync-config.cson
+
 # Optional npm cache directory
 .npm
 
