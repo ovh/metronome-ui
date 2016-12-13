@@ -3,8 +3,8 @@
     <div class="level-left">
       <div>
         <h3 class="subtitle" ng-if="name">{{name}}</h3>
-        <p class="status accent">{{status | mtTaskStatus}}</p>
-        <p>{{time | amFromUnix | amUtc | amDateFormat:'MMM D YYYY [at] HH:mm:ss'}}</p>
+        <p class="status accent">{{(time ? status : '') | mtTaskStatus}}</p>
+        <p ng-if="time">{{time | amFromUnix | amUtc | amDateFormat:'MMM D YYYY [at] HH:mm:ss'}}</p>
       </div>
     </div>
     <div class="level-right">
