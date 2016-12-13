@@ -99,9 +99,18 @@
 
   <div class="column execs">
     <h2 class="title">Executions</h2>
-    <p class="status" ng-if="!nextExec.length">
-      <mt-task status="task.runCode" time="task.runAt"></mt-task>
-    </p>
+    <div ng-if="!nextExec.length">
+      <mt-task status="task.runCode" time="task.runAt" ng-hide="edit"></mt-task>
+      <div class="mt-task" ng-show="edit">
+        <div class="level">
+          <div class="level-left">
+            <div>
+              <p class="status accent">No planned executions</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div ng-repeat="t in nextExec">
       <mt-task status="t.status" time="t.at"></mt-task>
