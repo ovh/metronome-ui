@@ -77,7 +77,7 @@ $(function () {
 
     $.ajax({
         type: "POST",
-        url: 'http://127.0.0.1:8080/auth',
+        url: 'http://' + location.hostname + ':8081/auth',
         contentType: 'application/json',
         dataType: 'json',
         data: JSON.stringify({
