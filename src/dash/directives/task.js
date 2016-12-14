@@ -10,6 +10,7 @@
         name: '=',
         status: '=',
         time: '=',
+        duration: '=',
         icon: '@'
       },
       templateUrl: 'directives/task.html'

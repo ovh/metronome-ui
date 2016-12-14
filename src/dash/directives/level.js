@@ -13,7 +13,6 @@
       },
       link: {
         pre: function (scope) {
-          console.log((scope.value), (scope.max));
           scope.ratio = parseInt(scope.value) / parseInt(scope.max) * 100;
         }
       },

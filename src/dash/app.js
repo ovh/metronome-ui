@@ -9,6 +9,7 @@
       'angularMoment',
       'toaster',
       'metronome.services.http',
+      'metronome.services.ws',
       'metronome.services.task',
       'metronome.services.transpiler',
       'metronome.services.user',
@@ -19,7 +20,8 @@
       'metronome.fragments.task'
     ])
     .constant('CONFIG', {
-      api: 'http://127.0.0.1:8080'
+      api: 'http://127.0.0.1:8080',
+      ws: 'ws://127.0.0.1:8080',
     })
     .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
       $locationProvider.hashPrefix('!');
