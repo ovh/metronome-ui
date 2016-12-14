@@ -1,5 +1,5 @@
 $(function () {
-  if(Cookies.get('token')) {
+  if (Cookies.get('token')) {
     window.location.href = '/dash';
   }
 
@@ -22,8 +22,13 @@ $(function () {
   var usernameInput = $('#username');
 
   function checkUsername() {
-    if (!usernameInput.val().trim()) {
+    var username = usernameInput.val().trim();
+    if (!username) {
       err(usernameInput, 'A username is required');
+      return false;
+    }
+    if (username.length < 3) {
+      err(usernameInput, 'Your username is too short');
       return false;
     }
     err(usernameInput, '');
@@ -39,8 +44,13 @@ $(function () {
   var passwordInput = $('#password');
 
   function checkPassword() {
-    if (!passwordInput.val().trim()) {
+    var password = passwordInput.val().trim();
+    if (!password) {
       err(passwordInput, 'A password is required');
+      return false;
+    }
+    if (username.length < 3) {
+      err(usernameInput, 'Your password is too short');
       return false;
     }
     err(passwordInput, '');
