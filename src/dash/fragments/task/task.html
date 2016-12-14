@@ -13,7 +13,7 @@
 
     <div class="entry">
       <p>URN: {{task.urn}}</p>
-      <p>START: {{task.schedule.date + ' ' + task.schedule.time | amParse:'YYYY.MM.DD HH:mm:ss' | amUtc | amDateFormat:'MMM D YYYY [at] HH:mm:ss'}}</p>
+      <p>START: {{task.schedule.date + ' ' + task.schedule.time | amParse:'YYYY.MM.DD HH:mm:ss' | amDateFormat:'MMM D YYYY [at] HH:mm:ss'}}</p>
       <p>PERIOD ({{task.schedule.periodIsDate ? 'DATE' : 'TIME'}}): {{task.schedule.period}}</p>
       <p>REPEAT: {{task.schedule.repeat !== '' ? 'task.schedule.repeat' : 'Forever'}}</p>
       <p>EPSILON: {{task.schedule.epsilon}}</p>
