@@ -34,16 +34,18 @@
 
           switch (scope.type) {
             case 'number':
-              if (v !== '') {
-                v = parseInt(v);
-                if (!isFinite(v)) {
-                  scope.err = 'Bad format';
-                  return false;
-                }
-                if (v < parseInt(scope.min)) {
-                  scope.err = 'Bad format';
-                  return false;
-                }
+              if (v === '') {
+                break;
+              }
+
+              v = parseInt(v);
+              if (!isFinite(v)) {
+                scope.err = 'Bad format';
+                return false;
+              }
+              if (v < parseInt(scope.min)) {
+                scope.err = 'Bad format';
+                return false;
               }
               break;
             case 'date':
@@ -58,6 +60,18 @@
                 scope.err = 'Bad format';
                 return false;
               }
+              break;
+
+            case 'urn':
+              if (!v) {
+                break;
+              }
+
+              if (!/^(\S+):\/\/(\S+)$/.test(v)) {
+                scope.err = 'Bad format. Should be "proto://path"';
+                return false;
+              }
+
               break;
             case 'period':
               if (!v) {
