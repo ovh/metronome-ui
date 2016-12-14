@@ -1,14 +1,43 @@
-.mt-signin, .mt-signup {
-    .hero.is-primary .title {
-        color: #363636;
-    }
+.mt-signin,
+.mt-signup {
+  .hero.is-primary {
+    background: #4B79A1;
+    background: -webkit-linear-gradient(to left, #4B79A1 , #283E51);
+    background: linear-gradient(to left, #4B79A1 , #283E51);
 
-    .box {
-        max-width: 400px;
-        margin: 0 auto;
-
-        p {
-            color: #4a4a4a;
-        }
+    .title {
+      color: #363636;
     }
+  }
+
+  .box {
+    max-width: 400px;
+    margin: 0 auto;
+
+    p {
+      color: #4a4a4a;
+    }
+  }
+
+  @main: #477297;
+  @hover: #4b79a1;
+  .button {
+    margin-bottom: 8px;
+    background-color: @main;
+  }
+
+  .button:hover, .button:focus {
+    background-color: @hover;
+  }
+
+  .input:focus {
+    border-color: @main;
+  }
+
+  a {
+    color: @main;
+  }
+  a:hover, a:focus {
+    color: @hover;
+  }
 }
