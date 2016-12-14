@@ -72,6 +72,10 @@
         }
       });
 
+      ws.on('task', function (t) {
+        tasks[t.guid] = t;
+        tasks[t.guid].execs = tasks[t.guid].execs || [];
+      });
 
       return scope;
     }]);
