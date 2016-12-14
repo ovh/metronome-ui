@@ -12,6 +12,11 @@ module.exports = function (grunt) {
           dest: 'build'
         }, {
           expand: true,
+          cwd: 'src',
+          src: '**/*.ico',
+          dest: 'build'
+        }, {
+          expand: true,
           cwd: 'node_modules/bulma/css/',
           src: "*.css*",
           dest: "build/css/"
