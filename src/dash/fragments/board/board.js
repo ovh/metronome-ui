@@ -17,7 +17,7 @@
       });
 
       $scope.open = function (task) {
-        $location.path('/task/' + task.id);
+        $location.path('/task/' + task.guid);
       };
     }
   ]).filter('mtTasksCount', function () {

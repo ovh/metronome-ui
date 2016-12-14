@@ -2,8 +2,7 @@
   'use strict';
 
   angular.module('metronome.services.task', [])
-    .factory('TaskSrv', ['UserSrv', 'http', function (UserSrv, http) {
-
+    .factory('TaskSrv', ['UserSrv', 'http', 'ws', function (UserSrv, http, ws) {
       var tasks,
         scope = {
           all: function (cb) {
@@ -13,8 +12,9 @@
             }).then(function (res, err) {
               if (res.status === 200) {
                 tasks = {};
-                angular.forEach(res.data, function(t) {
-                  tasks[t.id] = t;
+                angular.forEach(res.data, function (t) {
+                  tasks[t.guid] = t;
+                  tasks[t.guid].execs = [];
                 });
 
                 return cb(tasks);
@@ -22,7 +22,7 @@
               console.error('Failed to load tasks', res);
 
               cb(tasks);
-            }, function(err) {
+            }, function (err) {
               console.error('Failed to load tasks', err);
               cb({});
             });
@@ -45,7 +45,7 @@
               data: task
             }).then(function (res, err) {
               cb(err, task);
-            }, function(err) {
+            }, function (err) {
               cb(err);
             });
           },
@@ -55,11 +55,23 @@
               path: '/task/' + id
             }).then(function (res, err) {
               cb(err);
-            }, function(err) {
+            }, function (err) {
               cb(err);
             });
           }
         };
+
+      ws.on('state', function (t) {
+        tasks[t.taskGUID].runAt = t.at;
+        tasks[t.taskGUID].runCode = t.state;
+
+        tasks[t.taskGUID].execs.push(t);
+
+        if (tasks[t.taskGUID].execs.length > 25) {
+          tasks[t.taskGUID].execs.splice(0, 1);
+        }
+      });
+
 
       return scope;
     }]);

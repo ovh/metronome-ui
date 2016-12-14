@@ -99,7 +99,7 @@
 
   <div class="column execs">
     <h2 class="title">Executions</h2>
-    <div ng-if="!nextExec.length">
+    <div ng-if="!nextExec.length && !execs.length">
       <mt-task status="task.runCode" time="task.runAt" ng-hide="edit"></mt-task>
       <div class="mt-task" ng-show="edit">
         <div class="level">
@@ -114,6 +114,11 @@
 
     <div ng-repeat="t in nextExec">
       <mt-task status="t.status" time="t.at"></mt-task>
+      <hr ng-if="!$last">
+    </div>
+
+    <div ng-repeat="ex in execs | orderBy:'at':true">
+      <mt-task status="ex.state" time="ex.doneAt" duration="ex.duration"></mt-task>
       <hr ng-if="!$last">
     </div>
   </div>

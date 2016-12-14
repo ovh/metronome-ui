@@ -50,6 +50,7 @@
               epsilon: segs[3].substring(1).replace('T', '')
             },
           };
+          $scope.execs = task.execs;
         });
       } else {
         $scope.edit = true;
@@ -260,7 +261,7 @@
             }
 
             if (!$routeParams.id) {
-              $location.path('/task/' + t.id);
+              $location.path('/task/' + t.guid);
             }
 
             $scope.edit = !$scope.edit;
