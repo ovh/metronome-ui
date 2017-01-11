@@ -22,6 +22,16 @@ module.exports = function (grunt) {
           dest: "build/css/"
         }, {
           expand: true,
+          cwd: 'node_modules/font-awesome/css/',
+          src: "*min.css*",
+          dest: "build/css/"
+        }, {
+          expand: true,
+          cwd: 'node_modules/font-awesome/fonts/',
+          src: "fontawesome-webfont.*",
+          dest: "build/fonts"
+        }, {
+          expand: true,
           cwd: 'node_modules/jquery/dist/',
           src: "jquery.min.*",
           dest: "build/js/"
@@ -68,6 +78,12 @@ module.exports = function (grunt) {
         }, {
           expand: true,
           cwd: 'node_modules/js-sha256/build',
+          src: "*.min.js",
+          dest: "build/js/"
+        },{
+        }, {
+          expand: true,
+          cwd: 'node_modules/angular-jwt/dist',
           src: "*.min.js",
           dest: "build/js/"
         },{

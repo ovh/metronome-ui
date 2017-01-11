@@ -105,12 +105,14 @@ $(function () {
             contentType: 'application/json',
             dataType: 'json',
             data: JSON.stringify({
+              type: "bearer",
               username: usernameInput.val().trim(),
               password: passwordInput.val().trim()
             })
           })
           .done(function (data) {
             Cookies.set('token', data.token);
+            Cookies.set('refreshToken', data.refreshToken);
             window.location.href = '/dash';
           })
           .fail(function () {
