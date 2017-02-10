@@ -82,7 +82,8 @@ $(function () {
         dataType: 'json',
         data: JSON.stringify({
           username: usernameInput.val().trim(),
-          password: passwordInput.val().trim()
+          password: passwordInput.val().trim(),
+          type: "bearer"
         })
       })
       .done(function (data) {
