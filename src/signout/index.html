@@ -10,10 +10,35 @@
 
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- build:css inline alias.less -->
+  <link rel="stylesheet" href="/css/bulma.css">
+  <link rel="stylesheet" href="/css/sign.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <!-- /build -->
 </head>
 
-<body>
+<body class="mt-signout">
+	<section class="hero is-fullheight is-primary is-bold has-text-centered">
+		<div class="hero-body">
+			<div class="container">
+				<div class="box">
+					<h1 class="title is-1">Logging out...</h1>
+          <h3 class="title is-3">
+            <span class="icon is-medium">
+              <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+            </span>
+          </h3>
+          <div class="notification is-danger" id="message" style="display: none">
+            <button class="delete" id="message-hide"></button>
+            <div id="message-content"></div>
+          </div>
+				</div>
+			</div>
+		</div>
+	</section>
 	<!-- build:js inline bundle.js -->
+  <script src="/js/jquery.min.js"></script>
 	<script src="/js/js.cookie.js"></script>
 	<!-- /build -->
 
