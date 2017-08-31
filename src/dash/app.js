@@ -20,8 +20,8 @@
       'metronome.fragments.task'
     ])
     .constant('CONFIG', {
-      api: 'http://' + location.hostname + ':8081',
-      ws: 'ws://' + location.hostname + ':8081',
+      api: 'https://' + location.hostname,
+      ws: 'wss://' + location.hostname,
     })
     .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
       $locationProvider.hashPrefix('!');

@@ -88,7 +88,7 @@ $(function () {
 
     $.ajax({
         type: "POST",
-        url: 'http://' + location.hostname + ':8081/user',
+        url: '/user',
         contentType: 'application/json',
         dataType: 'json',
         data: JSON.stringify({
