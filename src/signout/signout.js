@@ -1,6 +1,6 @@
 $.ajax({
     type: "POST",
-    url: 'http://' + location.hostname + ':8081/auth/logout',
+    url: '/auth/logout',
     contentType: 'application/json',
     dataType: 'json',
     headers: {
